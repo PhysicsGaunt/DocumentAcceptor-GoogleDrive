@@ -41,7 +41,7 @@ def main():
 
     # List files shared with you (this is just an example query)
     results = drive_service.files().list(orderBy= "sharedWithMeTime desc,modifiedTime desc",
-      pageSize= 50, q="'me' in writers", fields="nextPageToken, files(id, name)").execute()
+      pageSize= 100, q="'me' in writers", fields="nextPageToken, files(id, name)").execute()
     items = results.get('files', [])
 
     # Now, for each item, check the permissions to see if there's a pending ownership transfer
